@@ -1,0 +1,21 @@
+<h2>Загрузить КТ-670</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="kt670_file">
+    <button type="submit" name="submit_type" value="kt670">Отправить КТ-670</button>
+</form>
+
+<h2>Загрузить ЕСИС (full)</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="esis_file">
+    <button type="submit" name="submit_type" value="esis">Отправить ЕСИС (full)</button>
+</form>
+
+<h2>Загрузить CMDB</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="cmdb_file">
+    <button type="submit" name="submit_type" value="cmdb">Отправить CMDB</button>
+</form>
+

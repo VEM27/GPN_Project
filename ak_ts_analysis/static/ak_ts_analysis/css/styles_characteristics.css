@@ -1,0 +1,38 @@
+.table-container h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.custom-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 4px 4px;
+  border: 1px solid black;
+}
+
+.custom-table thead th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+table.custom-table .server-name-row td {
+  font-weight: bold;
+  background-color: #000000;
+  color: white;
+  padding: 6px 8px;
+}
+
+table.custom-table td.match-green {
+  background-color: #90ee90;
+}
+table.custom-table td.match-yellow {
+background-color: #ffff00; }  /* 2 */
+
+table.custom-table td.match-red {
+background-color: #ff0000; }     /* 0 */

@@ -1,0 +1,326 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: space-between;
+    align-items: stretch;
+}
+
+#left, #right {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#left {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .files_container занимает высоту по содержимому */
+.files_container {
+  flex-shrink: 0;
+}
+
+#right {
+  padding: 10px;
+  background: #535353;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #999;
+}
+
+/* Заголовки */
+#left h2, #right h2 {
+  margin: 0;
+  font-weight: 600;
+  color: #222;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Стили для формы */
+form label {
+  font-weight: 600;
+
+  display: block;
+  font-size: 0.9rem;
+  color: #535353;
+}
+
+form input[type="file"] {
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+  width: 225px;
+}
+
+form input[type="file"]:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+
+button {
+
+  padding: 6px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+/* PDF просмотр */
+#pdfViewer {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+  width: 100%;
+  background-color: white;
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  body, .container {
+    flex-direction: column;
+  }
+  #left, #right {
+    width: 100%;
+    height: 50vh;
+
+  }
+  #left {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+
+/* Разделение меню и контента */
+.check_container {
+  background-color: #eeeeee;
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #999;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Меню */
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #535353;
+}
+
+/* Кнопки меню */
+.tab-btn {
+  border: none;
+  background-color: #cccccc;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+.tab-btn:hover {
+  background-color: #aaaaaa;
+}
+
+.tab-btn.active {
+  background-color: #535353;
+  color: white;
+}
+
+/* Контент */
+.tab-content {
+  padding: 15px 0px 15px 0px;
+  /*background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 0 0 8px 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);*/
+}
+
+/* Результат */
+.result-block {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-height: 60px;
+  font-family: monospace;
+  color: #333;
+}
+
+
+
+.passport-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.passport-form label {
+  font-weight: bold;
+  min-width: 60px;
+}
+
+.passport-form input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+.tab-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.tab-content table th {
+  border: 1px solid #535353;
+  padding: 3px;
+  text-align: center;
+
+  white-space: nowrap;     /* ❗ Не переносить текст */
+  word-break: normal;      /* Стандартное поведение */
+  overflow-wrap: normal;   /* Стандартное поведение */
+}
+
+.tab-content table td {
+  border: 1px solid #535353;
+  padding: 3px;
+  text-align: center;
+
+  white-space: normal;          /* Разрешить перенос строк */
+  /*word-break: break-word;       /* Перенос слов внутри строки */
+  overflow-wrap: break-word;    /* Перенос при длинных словах */
+}
+
+.tab-content table th {
+  background-color: #abc6ff;
+  font-weight: bold;
+}
+
+.tab-content table td {
+  background-color: white;
+}
+
+.passport-table-calc-criticality td{
+    background-color: #ffe09e;
+}
+
+select{
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.table-header {
+    font-weight: bold;
+    font-size: 16px;
+    display:none;
+}
+
+
+.container-file{
+    display:flex;
+    align-items: baseline;
+    margin-bottom:5px;
+    column-gap:15px;
+}
+
+.arrow-box {
+  position: absolute;
+  top: 0;
+  left: -10px; /* выдвигается влево */
+  width: 10px;
+  height: 50px;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: left 0.3s ease, width 0.3s ease;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.arrow-box img {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.3s ease;
+}
+
+.arrow-box:hover {
+  width: 40px;
+  left: -40px; /* сдвигаем левее при наведении */
+  background-color: #3b82f6;
+}
+
+/* Наведение при повороте вправо */
+.arrow-box:hover .rotate-right {
+  transform: rotate(0deg) scale(1.8);
+}
+
+/* Наведение при повороте влево */
+.arrow-box:hover .rotate-left {
+  transform: rotate(180deg) scale(1.8);
+}
+
+.right_container {
+  position: relative;
+  overflow: visible; /* чтобы кнопка могла выходить за пределы */
+}
+
+.rotate-right {
+  transform: rotate(0deg);
+}
+
+.rotate-left {
+  transform: rotate(180deg);
+}
+
+

@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Анализ презентаций</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'ak_ts_analysis/css/styles_characteristics.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'ak_ts_analysis/css/styles.css' %}">
+
+</head>
+<body>
+<div class="container">
+  <div id="left">
+    <div class="files_container">
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="container-file">
+          <label>Презентация (.ppt, .pptx):</label>
+          <input type="file" name="presentation" accept=".ppt,.pptx" required />
+          <button type="submit">Проверить</button>
+        </div>
+        <div class="container-file">
+          <label>PDF для просмотра:</label>
+          <input type="file" id="pdfInput" accept="application/pdf" />
+        </div>
+      </form>
+    </div>
+    <div class="check_container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="passport">Паспорт</button>
+<!--        <button class="tab-btn" data-tab="architecture">Архитектура</button>-->
+        <button class="tab-btn" data-tab="characteristics">Характеристики</button>
+        <button class="tab-btn" data-tab="applications">ПО</button>
+        <button class="tab-btn" data-tab="licenses">Лицензии</button>
+        <button class="tab-btn" data-tab="architecture_app">Архитектура-ПО</button>
+
+      </div>
+
+      <div class="tab-content" id="passport">
+        <div class="passport-form">
+          <label for="value">Искать</label>
+          <input type="text" id="value" placeholder="Значение..." />
+          <label for="parameter">по полю</label>
+          <select id="parameter" name="parameter">
+            <option value="br_code">БР.Код</option>
+            <option value="br_name">БР.Имя</option>
+            <option value="bs_code">БС.Код</option>
+            <option value="bs_name">БС.Имя</option>
+            <option value="bu_code">БУ.Код</option>
+            <option value="bu_name">БУ.Имя</option>
+          </select>
+          <button id="passport-search">Найти</button>
+        </div>
+
+        <div class="table-header">ЕСИС</div>
+        <div id="esis-container"></div>
+
+        <div class="table-header">KT-670</div>
+        <div id="kt-container"></div>
+
+
+      </div>
+
+      <div class="tab-content" id="applications" style="display:none;">
+        <button id="applications-search">Найти</button>
+        <div id="applications-container"></div>
+      </div>
+
+      <div class="tab-content" id="characteristics" style="display:none;">
+        <button id="characteristics-search">Найти</button>
+        <div id="characteristics-container"></div>
+      </div>
+
+      <div class="tab-content" id="architecture_app" style="display:none;">
+        <button id="architecture_app-search">Найти</button>
+        <div id="architecture_app-container"></div>
+      </div>
+
+      <div class="tab-content" id="architecture" style="display:none;">
+        <button>Запросить данные</button>
+        <div class="result-block">Здесь будет анализ заголовков с информацией о типах архитектуры и ландшафтах...</div>
+      </div>
+
+      <div class="tab-content" id="licenses" style="display:none;">
+        <button id="licenses-search">Найти</button>
+        <div id="licenses-container"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="right" class="right_container">
+    <button class="arrow-box" id="arrowBtn">
+      <img src="{% static 'ak_ts_analysis/images/arrow.png' %}" alt="Arrow">
+    </button>
+    <iframe id="pdfViewer"></iframe>
+  </div>
+</div>
+  <script src="{% static 'ak_ts_analysis/js/scripts.js' %}"></script>
+<script src="{% static 'ak_ts_analysis/js/presentation.js' %}"></script>
+<script src="{% static 'ak_ts_analysis/js/api_passport.js' %}"></script>
+<script src="{% static 'ak_ts_analysis/js/api_characteristics.js' %}"></script>
+<script src="{% static 'ak_ts_analysis/js/api_licenses.js' %}"></script>
+<script src="{% static 'ak_ts_analysis/js/api_applications.js' %}"></script>
+<script src="{% static 'ak_ts_analysis/js/api_architecture_app.js' %}"></script>
+</body>
+</html>
